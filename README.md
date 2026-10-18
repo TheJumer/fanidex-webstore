@@ -149,8 +149,8 @@ Gost/
 #### 2. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo>.git
-cd <your-repo>
+git clone https://github.com/TheJumer/fanidex-webstore.git
+cd fanidex-webstore
 ```
 
 #### 3. Backend configuration
@@ -444,8 +444,8 @@ Gost/
 #### 2. Клонування репозиторію
 
 ```bash
-git clone https://github.com/<ваш-username>/<ваш-репозиторій>.git
-cd <ваш-репозиторій>
+git clone https://github.com/TheJumer/fanidex-webstore.git
+cd fanidex-webstore
 ```
 
 #### 3. Налаштування backend
