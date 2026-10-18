@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: #1a1625;
+  color: #e5e1ef;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Utility pill button classes used across the store. */
+@layer components {
+  .btn-gold {
+    @apply bg-gold text-[#2a2237] font-bold rounded-pill px-5 py-2 text-sm tracking-wide
+           transition-transform hover:scale-[1.03] active:scale-95;
+  }
+  .btn-outline-gold {
+    @apply bg-transparent border border-gold text-gold font-semibold rounded-pill px-5 py-2
+           text-sm tracking-wide transition-colors hover:bg-gold/10;
+  }
+  .price-pill {
+    @apply inline-flex items-center gap-2 border border-greenpill text-greenpill
+           rounded-pill px-3 py-1 text-sm font-semibold;
+  }
+  .panel {
+    @apply bg-card rounded-xl overflow-hidden;
+  }
+  .panel-header {
+    @apply bg-bar px-4 py-3 text-xs font-bold tracking-[0.15em] text-gray-200 uppercase;
+  }
+}
+
+/* Thin custom scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #3a3350; border-radius: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* Inline button spinner for async actions. */
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 9999px;
+  animation: spin 0.6s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Native form controls styled dark for admin panels. */
+select.inp option { background: #1a1625; color: #fff; }

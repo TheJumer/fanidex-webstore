@@ -1,0 +1,37 @@
+version: "3.9"
+
+# Optional full-stack dev environment. The backend defaults to SQLite so Postgres
+# here is opt-in: set DB_DRIVER=postgres and DB_DSN accordingly in backend/.env.
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: webstore
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    env_file:
+      - ./backend/.env
+    environment:
+      DB_DRIVER: postgres
+      DB_DSN: "host=postgres user=postgres password=postgres dbname=webstore port=5432 sslmode=disable"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:

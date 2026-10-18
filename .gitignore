@@ -1,0 +1,66 @@
+# ============================================================================
+# FaniDex / Minecraft Webstore — Root .gitignore
+# ============================================================================
+
+# ---- Environment files (NEVER commit real secrets) ----
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env
+*.env
+!*.env.example
+
+# ---- Databases (local/dev data + encrypted keys must never ship) ----
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+backend/webstore.db
+
+# ---- Go ----
+backend/server
+backend/server.exe
+backend/main
+backend/main.exe
+*.exe
+*.test
+*.out
+tmp/
+backend/tmp/
+
+# ---- Node / frontend ----
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+.vite/
+frontend/.vite/
+frontend/node-compile-cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ---- Logs ----
+*.log
+logs/
+
+# ---- IDE / editor ----
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ---- OS clutter ----
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ---- Misc build artifacts ----
+coverage/
+*.pid
+*.seed
+*.pid.lock
